@@ -1,6 +1,7 @@
 export interface User{
     id: number;
     name: string;
-    phoneNumber: number;
+    phoneNumber: string;
+    password: number;
     benefits: boolean;
 }

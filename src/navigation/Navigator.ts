@@ -3,20 +3,35 @@ import { createStackNavigator } from 'react-navigation-stack';
 import { LOGIN } from './Routes';
 import {
     Login,
-    SingUp1,
-    SingUp2,
-    SingUp3,
-    SingUp4,
-    Main
+    SignUpName,
+    SignUpBenefits,
+    SignUpPhonenubmer,
+    SignUpCreditCard,
+    TravelRoute,
+    BuyTicket,
+    Ticket,
+    SelectedTransport,
+    SignUpPassword
 } from '../view';
+
+import { All } from '../view/screens/TravelRoute/trabsportType';
+
+import {NavigationDrawer} from './navigationDrawer';
+
 
 const mainNavigation = createStackNavigator({
     LOGIN: Login,
-    SING_UP_1: SingUp1,
-    SING_UP_2: SingUp2,
-    SING_UP_3: SingUp3,
-    SING_UP_4: SingUp4,
-    MAIN: Main
+    SIGN_UP_NAME: SignUpName,
+    SIGN_UP_BENEFITS: SignUpBenefits,
+    SIGN_UP_PHONENUMBER: SignUpPhonenubmer,
+    SIGN_UP_CREDIT_CARD: SignUpCreditCard,
+    MAIN: NavigationDrawer,
+    TRAVEL_ROUTE: TravelRoute,
+    BUY_TICKET: BuyTicket,
+    TICKET: Ticket,
+    SELECTED_TRANSPORT: SelectedTransport,
+    ALL: All,
+    SIGN_UP_PASSWORD: SignUpPassword
 },{
     headerMode: 'none',
     initialRouteName: LOGIN

@@ -1,22 +1,32 @@
 import { User } from '../@types/Users';
 
-export const UserActionTypes = {
+export const SignUpActionTypes = {
     ADD_NAME: 'ADD_NAME',
     ADD_PHONENUMBER: 'ADD_PHONENUMBER',
-    CHOISE_BENEFITS: 'CHOISE_BENEFITS'
+    CHOOSE_BENEFITS: 'CHOOSE_BENEFITS',
+    CREATE_USER: 'CREATE_USER',
+    REMOVE_USER: 'REMOVE_USER'
 }
 
-export const addName = (users: User) => ({
-    type: UserActionTypes.ADD_NAME,
-    payload: {users}
+export const removeUser = () => ({
+    type: SignUpActionTypes.REMOVE_USER
 })
 
-export const addPhonenumber = (users: User) => ({
-    type: UserActionTypes.ADD_PHONENUMBER,
-    payload: {users}
+export const createUser  = () => ({
+    type: SignUpActionTypes.CREATE_USER
 })
 
-export const choiseBenefits = (users: User) => ({
-    type: UserActionTypes.CHOISE_BENEFITS,
-    payload: {users}
+export const addName = (name: string) => ({
+    type: SignUpActionTypes.ADD_NAME,
+    payload: {name}
+})
+
+export const addPhonenumber = (phonenumber: string) => ({
+    type: SignUpActionTypes.ADD_PHONENUMBER,
+    payload: {phonenumber}
+})
+
+export const chooseBenefits = (benefits: boolean) => ({
+    type: SignUpActionTypes.CHOOSE_BENEFITS,
+    payload: {benefits}
 })

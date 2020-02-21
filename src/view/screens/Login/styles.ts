@@ -54,10 +54,16 @@ const styles = StyleSheet.create({
         marginLeft: 20,
         marginRight: 10
     },
+    signInIC: {
+        width: 24.5,
+        height: 22.4,
+        marginLeft: 20,
+        marginRight: 10
+    },
     button: {
         marginTop: 70,
         borderRadius: 20,
-        backgroundColor: '#FFB900',
+        backgroundColor: '#17223BCC',
         paddingVertical: 15,
         alignItems: 'center',
         flexDirection: 'row'

@@ -1,13 +1,13 @@
 import React from 'react';
 import { Text, TextInput, Image, View, TouchableOpacity } from 'react-native';
 import styles from './styles';
-import { LogoIC, PersonIC, GoogleIC, FaceBookIC, LockIC, SingInIC } from '../../../assets/images';
+import { PersonIC, GoogleIC, FaceBookIC, LockIC, SingInIC } from '../../../assets/images';
 import { LogoContainer } from '../../components';
-import { SING_UP_1, MAIN } from '../../../navigation/Routes';
+import { SIGN_UP_NAME, MAIN } from '../../../navigation/Routes';
 
 class Login extends React.PureComponent {
     navigateToSingIn = () => {
-        this.props.navigation.navigate(SING_UP_1);
+        this.props.navigation.navigate(SIGN_UP_NAME);
     }
 
     navigateToMain = () => {
@@ -49,10 +49,9 @@ class Login extends React.PureComponent {
                          onPress = {this.navigateToMain}
                     > 
                         <Image 
-                            style = {styles.icon}                                 
+                            style = {styles.signInIC}                                 
                             source = { SingInIC }
-                            resizeMethod = 'resize'
-                            resizeMode = 'center'
+                            resizeMode = 'contain'
                         />
                         <Text style = {styles.buttonText}>SIGN IN</Text>
                     </TouchableOpacity>

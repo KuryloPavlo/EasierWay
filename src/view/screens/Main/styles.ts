@@ -19,11 +19,24 @@ const styles = StyleSheet.create({
         alignItems: 'center'
     },
     map: {
+        ...StyleSheet.absoluteFillObject
+    },
+    textInpuntContainer: {
+        borderRadius: 5,
+        alignItems: 'center',
         position: 'absolute',
-        left: 0,
-        right: 0,
-        top: 0,
-        bottom: 0,
+        left: 42,
+        right: 42,
+        top: 50,
+        flexDirection: 'row',
+        backgroundColor: '#FFF',
+        paddingLeft: 10
+    },
+    text: {
+        fontWeight: '500',
+        fontSize: 20,
+        lineHeight: 23,
+        color: '#FFFFFF'
     }
 })
 
