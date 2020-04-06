@@ -5,6 +5,7 @@ import { Dispatch } from 'redux';
 import { chooseBenefits } from '../../../../state/actions/User';
 
 const mapStateToProps = (state: AppState ) => ({
+    name: state.signUp.users[1].name,
     benefits: state.signUp.users[1].benefits
 })
 

@@ -4,11 +4,27 @@ import { LogoContainer } from '../../../components';
 import { PhoneIC } from '../../../../assets/images';
 import styles from './styles';
 import { SIGN_UP_PASSWORD } from '../../../../navigation/Routes';
-import { Props } from './types';
+import { Props, State } from './types';
 
-class SignUpPhonenumber extends React.PureComponent<Props> {
+class SignUpPhonenumber extends React.PureComponent<Props, State> {
+    public state: State = {
+        phonenumber: ''
+    }
     navigateToNextScreen = () => {
         this.props.navigation.navigate(SIGN_UP_PASSWORD );
+    }
+
+    savePassword = () => {
+        this.props.addPhonenumber(this.state.phonenumber)
+    }
+
+    saveAndNavigate = () => {
+        this.savePassword()
+        this.navigateToNextScreen()
+    }
+
+    onChangePhonenumber = (text: string) => {
+        this.setState({phonenumber: text})
     }
 
     render(){
@@ -30,13 +46,13 @@ class SignUpPhonenumber extends React.PureComponent<Props> {
                     />
                     <TextInput
                         placeholder = 'Your number'
-                        onChangeText = {this.props.addPhonenumber}
-                        value = {this.props.phoneNumber}
+                        onChangeText = {this.onChangePhonenumber}
+                        value = {this.state.phonenumber}
                     />
                 </View>
                 <TouchableOpacity
                     style = {styles.buttonContainer}
-                    onPress = {this.navigateToNextScreen}
+                    onPress = {this.saveAndNavigate}
                 >
                     <Text style = {styles.textButton}>NEXT</Text>
                 </TouchableOpacity>

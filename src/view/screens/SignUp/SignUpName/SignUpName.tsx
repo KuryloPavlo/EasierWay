@@ -3,15 +3,38 @@ import { View, Text, TextInput, TouchableOpacity } from 'react-native';
 import styles from './styles';
 import { LogoContainer } from '../../../components';
 import { SIGN_UP_BENEFITS } from '../../../../navigation/Routes';
-import { Props } from './types';
+import { Props, State } from './types';
 
-class SignUpName extends React.PureComponent<Props> {
+class SignUpName extends React.PureComponent<Props, State> {
+    public state: State = {
+        user: {
+            id: null,
+            name: '',
+            phoneNumber: '',
+            password: null,
+            benefits: false
+        }
+    }
     navigateToNextScreen = () => {
         this.props.navigation.navigate(SIGN_UP_BENEFITS);
     }
     
-    componentDidMount() {
-        this.props.createUser();
+    onSave = () => {
+        this.props.createUser(this.state.user)
+    }
+
+    saveAndNavigate = () => {
+        this.navigateToNextScreen()
+        this.onSave()
+    }
+
+    onChangeName = (text: string) => {
+        this.setState((prevState: State) => ({
+            user: {
+                ...prevState.user,
+                name: text
+            }
+        }))
     }
 
     render(){
@@ -24,13 +47,13 @@ class SignUpName extends React.PureComponent<Props> {
                 <View style = {styles.textInputContainer}>
                     <TextInput 
                         placeholder = 'Name'
-                        onChangeText = {this.props.changeName}
-                        value = {this.props.name}
+                        onChangeText = {text => this.onChangeName(text)}
+                        value = {this.state.user.name}
                     />
                 </View>
                 <TouchableOpacity 
                     style = {styles.buttonContainer}
-                    onPress = {this.navigateToNextScreen}
+                    onPress = {this.saveAndNavigate}
                 >
                     <Text style = {styles.textButton}>NEXT</Text>
                 </TouchableOpacity>

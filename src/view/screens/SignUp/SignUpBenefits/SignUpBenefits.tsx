@@ -11,9 +11,13 @@ class SignUpBenefits extends React.PureComponent<Props> {
         this.props.navigation.navigate(SIGN_UP_PHONENUMBER)
     }
 
+    changeBenefits = () => {
+        this.props.chooseBenefits(true)
+    }
+
     changeBenefitsAndNavigate = () => {
-        this.props.chooseBenefits,
-        this.props.navigation.navigate(SIGN_UP_PHONENUMBER)
+        this.changeBenefits()
+        this.navigateToNextScreen()
     }
 
     render(){

@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { AppState } from '../../../../state/@types/App';
 import { Dispatch } from 'redux';
 import { createUser, addName } from '../../../../state/actions/User';
+import { User } from '../../../../state/@types/Users';
 
 
 const mapStateToProps = (state: AppState)  => ({
@@ -10,7 +11,7 @@ const mapStateToProps = (state: AppState)  => ({
 })
 
 const mapDispatchToProps = (dispatch: Dispatch) => ({
-    createUser: () => dispatch(createUser()),
+    createUser: (user: User) => dispatch(createUser(user)),
     changeName: (name: string) => dispatch(addName(name))
 })
 
